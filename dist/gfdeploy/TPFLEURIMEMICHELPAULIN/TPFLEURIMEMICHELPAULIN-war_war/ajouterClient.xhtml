@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  
+    
+    
+    <body>
+
+        <ui:composition template="/template/home.xhtml">
+            <ui:define name="content"> 
+            
+               
+                <f:view>
+                  <h:form class="form-horizontal" role="form">   
+                       <p:messages id="messages" /> 
+                      
+                    <div class="row">
+                    <div class="col-md-6 ">
+                        
+            
+              
+                        <p:fieldset  style="margin-bottom:3px">
+                             <legend style="background-color: #245580; color: white;text-align: center; padding: 3px;">Nouveau Client</legend>
+            
+                        <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="NIF * :" for="nif" />
+                          <div class="col-md-8">
+                              <p:inputMask class="form-group-lg" id="nif" value="#{newClientMBean.client.nif}" mask="999-999-999-9" required="true" requiredMessage="Veuillez entrer votre numero d'identification ?"/>
+                          </div>
+                       </div>
+                         <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="Nom * :" for="nom" />
+                          <div class="col-md-8">
+                              <p:inputText class="form-group-lg" id="nom" value="#{newClientMBean.client.nom}" title="Nom" placeholder="Entrer votre nom" required="true" requiredMessage="Veuillez entrer votre nom ?"/>
+                           </div>
+                       </div> 
+                        
+                        <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="Prénom * :" for="prenom" />
+                         <div class="col-md-8">
+                             <p:inputText class="form-group-lg" id="prenom" value="#{newClientMBean.client.prenom}" title="Prenom" placeholder="Entrer votre prenom" required="true" requiredMessage="Veuillez entrer votre prenom ?" /> 
+                           </div>
+                       </div>   
+                        
+             <div class="form-group">
+             <h:outputLabel class="col-md-3 control-label" value="Numero :" for="numero" />
+             
+            <div class="col-sm-8">
+                
+                 <p:inputText  id="numero" value="#{newClientMBean.client.addresse.numero}"/>
+             
+              </div>
+             </div>
+            <div class="form-group">
+            <h:outputLabel class="col-md-3 control-label" value="Rue :" for="rue" />
+            <div class="col-sm-8">
+            <p:inputText class="form-group-lg" id="rue" value="#{newClientMBean.client.addresse.rue}" title="Rue" placeholder="votre adresse"/>
+            </div>
+          </div>
+                         <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="Ville :" for="ville" />
+                            <div class="col-sm-8">
+                            <p:inputText class="form-group-lg" id="ville" value="#{newClientMBean.client.addresse.ville}" title="Ville" placeholder="Exemple : Port-au-prince" />
+                          </div>
+                         </div>
+                 
+                           
+                           <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="Téléphone :" for="phone" />
+                            <div class="col-sm-8">
+                            <p:inputMask class="form-group-lg" id="phone" value="#{newClientMBean.client.phone}" mask="(999) 9999-9999" />
+                            </div>
+                         </div>
+                    
+                           <div class="form-group">
+                            <h:outputLabel class="col-md-3 control-label" value="Email :" for="email" />
+                          <div class="col-sm-8"> 
+                            <p:inputText class="form-group-lg" id="email" value="#{newClientMBean.client.email}" title="email" placeholder="Exemple : jhonsmith@gmail.com" />
+                          </div>
+                         </div>  
+    
+                             <div class="form-group">
+                             <div class="col-sm-offset-3 col-sm-8">
+                             <div class="pull-left">
+                                 <h:commandButton value="Ajouter" action="${newClientMBean.creeClient()}" type="submit" class="btn-lg btn-success"> </h:commandButton> 
+                               <h:button outcome="/index.xhtml"  value="Retour" class="btn-lg btn-default preview-add-button"/>  
+                                 
+                             </div>
+                             </div>
+                             </div>
+                    </p:fieldset>
+                   
+                    </div>
+                    </div>
+                </h:form> 
+                </f:view>
+
+            
+            </ui:define>
+            
+            
+        </ui:composition>
+    </body>
+</html>
+

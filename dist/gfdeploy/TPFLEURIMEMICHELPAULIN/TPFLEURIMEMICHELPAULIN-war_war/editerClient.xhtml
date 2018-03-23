@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <ui:composition template="/template/home.xhtml">
+            <ui:define name="content"> 
+            
+               
+                <f:view>
+                  <div class="row">
+                    <div class="col-md-6 ">
+        
+                <h:form class="form-horizontal" role="form">
+                    <p:fieldset  style="margin-bottom:3px">
+                            <legend>Details Du client</legend>
+            
+                        <p:messages id="messages" /> 
+                        <div class="col-md-6 col-md-offset-1">     
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nif:" for="nif" />
+                    <p:inputText id="nif" value="#{clientDetailsMBean.details.nif}" title="Nif" />
+                    <p:outputLabel value="Nom:" for="nom" />
+                    <p:inputText id="nom" value="#{clientDetailsMBean.details.nom}" title="Nom" />
+                    <p:outputLabel value="Prenom:" for="prenom" />
+                    <p:inputText id="prenom" value="#{clientDetailsMBean.details.prenom}" title="Prenom" />
+                    <p:outputLabel value="Ville:" for="ville" />
+                    <p:inputText id="ville" value="#{clientDetailsMBean.details.addresse.ville}" title="Ville" />
+                    <p:outputLabel value="Rue" for="rue" />
+                    <p:inputText id="rue" value="#{clientDetailsMBean.details.addresse.rue}" title="Rue" />
+                    <p:outputLabel value="No:" for="no" />
+                    <p:inputText id="no" value="#{clientDetailsMBean.details.addresse.numero}" title="No" />
+                    <p:outputLabel value="Phone:" for="phone" />
+                    <p:inputText id="phone" value="#{clientDetailsMBean.details.phone}" title="Phone" />
+                    <p:outputLabel value="Email:" for="email" />
+                    <p:inputText id="email" value="#{clientDetailsMBean.details.email}" title="Email" />
+                   
+                    
+   
+                   
+                </p:panelGrid> 
+                 <p:commandButton id="update" value="Modifier" action="#{clientDetailsMBean.update()}" type="submit"/>
+                  </div> 
+                    </p:fieldset>  
+            </h:form>
+                    
+                  </div>
+                    </div>  
+        </f:view>
+
+            
+            </ui:define>
+            
+            
+        </ui:composition>
+    </h:body>
+</html>
+

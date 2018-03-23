@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Accueil</title>
+        
+     
+        <link type="text/css"
+		href="${facesContext.externalContext.requestContextPath}/resources/css/bootstrap.min.css"
+		rel="stylesheet" />
+        
+        <link type="text/css"
+		href="${facesContext.externalContext.requestContextPath}/resources/css/style.css"
+		rel="stylesheet" />
+	<link type="image/x-icon"
+		href="${facesContext.externalContext.requestContextPath}/resources/images/favicon.ico"
+		rel="shortcut icon" />
+    </h:head>
+    <h:body>
+        <p:layout style="min-width:400px;min-height:640px;">
+            
+             <!--Le Header par défaut-->
+          <p:layoutUnit position="north" resizable="true" size="auto" minSize="40" maxSize="200">
+              <ui:insert name="header">
+                <h:panelGroup layout="block" class="header-style">
+                <ui:include src="/template/header.xhtml" />
+                </h:panelGroup>
+        </ui:insert>
+        </p:layoutUnit>
+             <!--Le sidebar par défaut-->
+    <p:layoutUnit position="west" resizable="true" size="210" minSize="40" maxSize="210">
+        
+        <h:form >
+       <p:panelMenu style="width:200px">
+            <p:submenu label="CLIENT">
+                <p:menuitem value="Nouveau Client" url="${pageContext.request.contextPath}/faces/ajouterClient.xhtml" icon="ui-icon-circle-plus  " />
+             <p:menuitem value="Rechercher Client" url="${pageContext.request.contextPath}/faces/rechercherClient.xhtml"  icon="ui-icon-pencil " />
+             <p:menuitem value="Lister Client" url="${pageContext.request.contextPath}/faces/listeClients.xhtml"  icon="ui-icon-transfer-e-w"  />
+        
+        </p:submenu>
+            <p:separator />
+        <p:submenu label="COMPTE">
+            <p:menuitem value="Creer Compte" url="${pageContext.request.contextPath}/faces/nouveauCompte.xhtml" icon="ui-icon-circle-plus" />
+             <p:menuitem value="Consulter Compte" actionListener="#{menuView.save}" icon="ui-icon-disk" />
+            <p:menuitem value="Fermer compte" actionListener="#{menuView.update}"  icon="ui-icon-cancel" />
+            <p:menuitem value="Lister comptes" url="${pageContext.request.contextPath}/faces/listeComptes.xhtml"  icon="ui-icon-transfer-e-w"  />
+        </p:submenu>
+        <p:submenu label="TRANSACTIONS">
+             <p:menuitem value="Faire un depot" url="${pageContext.request.contextPath}/faces/depot.xhtml"  icon="ui-icon-circle-plus  " />
+            <p:menuitem value="Faire un retrait" url="${pageContext.request.contextPath}/faces/retrait.xhtml" icon="ui-icon-disk"/>
+            <p:menuitem value="Virement" url="${pageContext.request.contextPath}/faces/virement.xhtml"  icon="ui-icon-transfer-e-w" />
+        
+        </p:submenu>
+       
+    </p:panelMenu></h:form>
+      
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+         <!--Le Contenu de la page-->
+        <h:panelGroup layout="block" class="content-style">
+            
+              <ui:insert name="content"></ui:insert>   
+        </h:panelGroup>
+    </p:layoutUnit>
+         
+</p:layout>
+    </h:body>
+</html>
+

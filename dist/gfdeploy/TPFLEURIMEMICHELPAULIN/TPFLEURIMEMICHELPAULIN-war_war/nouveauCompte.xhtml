@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>nouveau compte</title>
+    </h:head>
+    <h:body>
+       
+        <ui:composition template="/template/home.xhtml">
+            <ui:define name="content"> 
+            
+               
+                <f:view>
+
+
+                     <h:form class="form-horizontal" role="form">   
+                         
+                          <p:messages id="messages" /> 
+                    <div class="row">
+                    <div class="col-md-6 ">
+                        
+            
+              
+                        <p:fieldset  style="margin-bottom:3px">
+                            <legend style="background-color: #245580; color: white;text-align: center; padding: 3px;">Nouveau Compte</legend>
+            
+                       
+                        
+                         <div class="form-group">
+                            <h:outputLabel value="NumeroCompte *:" for="numeroCompte" class="col-md-3 control-label" />
+                          <div class="col-md-8">
+                            <p:inputMask id="numeroCompte" value="#{compteBancaireMBean.compteBancaire.numeroCompte}" mask="999-9999-9999999" title="NumeroCompte" required="true" requiredMessage="The NumeroCompte field is required."/>
+                             </div>
+                             </div>
+                        
+                            <div class="form-group">
+                            <h:outputLabel value="Type de Compte:" for="nom" class="col-md-3 control-label" />
+                            <div class="col-md-8">
+                            <h:selectOneMenu id="nom" value="#{compteBancaireMBean.compteBancaire.nom}" style="width:150px">
+                              <f:selectItem  itemLabel="Selectionnez un compte" itemValue="" />
+                              <f:selectItem itemLabel="Compte Courant" itemValue="Courant"/>
+                              <f:selectItem itemLabel="Compte d'epargne" itemValue="Epargne" />
+                              <f:selectItem itemLabel="Chequier" itemValue="Chequier"/>
+                               </h:selectOneMenu>
+                              </div>
+                             </div>
+                        
+                           <div class="form-group">
+                           
+                            <h:outputLabel value="Solde Anterieur:" for="solde" class="col-md-3 control-label" />
+                            <div class="col-md-8"> 
+                            <h:inputText id="solde" value="#{compteBancaireMBean.compteBancaire.solde}" title="Solde" />
+                            </div></div>
+                        
+                            <div class="form-group">
+                            <h:outputLabel value="Client:" for="client" class="col-md-3 control-label" />
+                            <div class="col-md-8">
+                            <h:selectOneMenu id="client" value="#{compteBancaireMBean.client}" title="Client" 
+                                converter="#{compteBancaireMBean.clientConverter}" >
+                        <!-- TODO: update below reference to list of available items-->
+                            <f:selectItems value="#{clientMBean.clients}"
+                                           var="item" itemLabel="#{item.nom} #{item.prenom}" itemValue="#{item}" />
+                            </h:selectOneMenu>
+                             </div>
+                             </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                             <div class="pull-left">
+                            <h:commandButton id="ajouter"  value="Sauvegarder" action="#{compteBancaireMBean.addCompte()}" type="submit" class="btn btn-success"> </h:commandButton> 
+                             </div></div></div>
+                        </p:fieldset>
+                    </div>
+                    </div>
+                </h:form> 
+
+        </f:view>
+
+            
+            </ui:define>
+            
+            
+        </ui:composition>
+        
+    </h:body>
+</html>
+

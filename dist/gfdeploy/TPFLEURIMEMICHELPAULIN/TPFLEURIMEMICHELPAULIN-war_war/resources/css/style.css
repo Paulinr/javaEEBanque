@@ -1,0 +1,64 @@
+
+
+td_table {
+    
+  
+    margin: auto;
+    text-align: left;
+    
+}
+
+.control-label{
+  font-style: normal;
+  color: #122b40;
+font-size: 12px;  
+      
+}
+
+.form-group {
+    font-style: normal;
+    color: #122b40;
+    font-size: 12px; 
+      
+}
+
+.form-group-lg :hover {
+    
+    background-color: #1b6d85;
+    border: 1px solid #122b40;
+    
+}
+
+.form-group-lg :active{
+    
+    background-color: #1b6d85;
+    border: 1px solid #122b40;
+    
+}
+
+.btn-success{
+  margin-right: 15px;  
+  font-size: 14px;
+    
+    
+}
+
+.entete_form{
+background-color: #245580;
+color: white;
+font-size: 14px;
+    
+}
+.table-striped{
+    
+    width: 98%;
+    margin: auto;
+    
+}
+
+.btn-link{
+    
+  float: right;
+  margin-top: 5px;
+  margin-right: 15px;    
+}
